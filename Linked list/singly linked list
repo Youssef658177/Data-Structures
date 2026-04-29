@@ -1,0 +1,36 @@
+#include<iostream>
+using namespace std;
+struct Node{
+    int data;
+    Node* next;
+};
+void printList(Node* head){
+    while(head!=nullptr){
+        cout<<head->data<<"->";
+        head =head ->next;
+
+    }
+    cout<<"Null\n";
+
+}
+void insertAtEnd(Node*&head ,int value){
+    Node* newNode=new Node{value,nullptr};
+    if (head==nullptr){
+        head =newNode;
+        return;
+    }
+    Node*temp=head;
+    while(temp->next!=nullptr){
+        temp=temp->next;
+    }
+    temp->next=newNode;
+}
+int main (){
+
+Node*head=nullptr;
+insertAtEnd(head,10);
+insertAtEnd(head,20);
+insertAtEnd(head,30);
+printList(head);
+    return 100;
+}
